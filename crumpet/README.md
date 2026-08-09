@@ -7,7 +7,7 @@ the specification.
 
 ## Usage
 
-See the examples in either [examples_dynamic]([examples_dynamic](https://github.com/hiteshjasani/crumpet/tree/main/examples_dynamic) or [examples_static]([examples_static](https://github.com/hiteshjasani/crumpet/tree/main/examples_static).
+See the examples in either [examples_dynamic](https://github.com/hiteshjasani/crumpet/tree/main/examples_dynamic) or [examples_static](https://github.com/hiteshjasani/crumpet/tree/main/examples_static).
 
 ## License
 This project is dual-licensed under the Apache License, Version 2.0 and the MIT License. See the [LICENSE](LICENSE.md) file for details.

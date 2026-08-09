@@ -20,14 +20,9 @@
 //! ### main.rs
 //!
 //! ```rust
-//! #[cfg(all(feature = "windows_dynamic", not(feature = "windows_static")))]
 //! use win_tpm::win_dynamic::TbsDyn;
 //!
 //! fn main() -> Result<(), Box<dyn Error>> {
-//!    #[cfg(all(feature = "windows_static", not(feature = "windows_dynamic")))]
-//!    let tbs = TbsStatic::open()?;
-//!
-//!    #[cfg(all(feature = "windows_dynamic", not(feature = "windows_static")))]
 //!    let tbs = TbsDyn::open()?;
 //!
 //!    test_all(tbs)?;

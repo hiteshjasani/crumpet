@@ -17,8 +17,8 @@ use std::ffi::c_void;
 use anyhow::anyhow;
 use windows::Win32::System::TpmBaseServices::{
     TBS_COMMAND_LOCALITY, TBS_COMMAND_PRIORITY, TBS_CONTEXT_PARAMS2, TBS_CONTEXT_PARAMS2_0,
-    TBS_CONTEXT_PARAMS2_0_0, TBS_CONTEXT_VERSION_TWO, TBS_SUCCESS, Tbsi_Context_Create,
-    Tbsip_Context_Close, Tbsip_Submit_Command,
+    TBS_CONTEXT_VERSION_TWO, TBS_SUCCESS, Tbsi_Context_Create, Tbsip_Context_Close,
+    Tbsip_Submit_Command,
 };
 
 use super::tbs::Tbs;
@@ -30,7 +30,6 @@ pub struct TbsStatic {
 impl Tbs for TbsStatic {
     fn open() -> Result<Self, Box<dyn Error>> {
         unsafe {
-            let tbs2_flags = TBS_CONTEXT_PARAMS2_0_0 { _bitfield: 1 };
             let context_params = TBS_CONTEXT_PARAMS2 {
                 version: TBS_CONTEXT_VERSION_TWO,
                 Anonymous: TBS_CONTEXT_PARAMS2_0 { asUINT32: (1 << 2) },

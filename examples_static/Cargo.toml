@@ -13,3 +13,7 @@ sha2 = { version = "0.10", features = ["oid"] }
 [[example]]
 name = "st_create_context"
 path = "st_create_context.rs"
+
+[[example]]
+name = "st_exp_ek_cert"
+path = "st_exp_ek_cert.rs"

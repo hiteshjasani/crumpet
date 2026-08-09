@@ -11,3 +11,8 @@ bld-examples:
 
 push-test:
   scp target/x86_64-pc-windows-gnu/release/examples/*.exe win1:bin/tpm/
+
+pull-test:
+  mkdir -p temp_run
+  scp -r win1:bin/tpm/dyn temp_run/
+  scp -r win1:bin/tpm/stat temp_run/

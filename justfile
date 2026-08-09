@@ -1,0 +1,13 @@
+TARGET  := "--target x86_64-pc-windows-gnu"
+
+bld: bld-lib bld-examples
+
+bld-lib:
+  cargo build --package crumpet {{TARGET}} --release
+
+bld-examples:
+  cargo build --package examples_dynamic --examples {{TARGET}} --release
+  cargo build --package examples_static --examples {{TARGET}} --release
+
+push-test:
+  scp target/x86_64-pc-windows-gnu/release/examples/*.exe win1:bin/tpm/

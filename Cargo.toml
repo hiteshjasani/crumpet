@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+  "crumpet",
+
+  # internal
+  "examples_dynamic",
+  "examples_static",
+]
+
+[patch.crates-io]
+crumpet = { path = "crumpet" }

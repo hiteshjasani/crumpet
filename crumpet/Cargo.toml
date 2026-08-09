@@ -1,0 +1,27 @@
+[package]
+name = "crumpet"
+version = "0.1.0"
+edition = "2024"
+license = "MIT or Apache 2.0"
+
+
+[features]
+default = ["windows_dynamic"]
+windows_dynamic = ["dep:libloading"]
+windows_static = ["dep:windows", "dep:anyhow"]
+
+[dependencies]
+anyhow = { version = "1", optional = true }
+libloading = { version = "0.8", optional = true }
+rsa = "0.9"
+sha2 = { version = "0.10", features = ["oid"] }
+windows = { version = "0.62", optional = true, features = [
+  "Win32_System_TpmBaseServices",
+] }
+
+[package.metadata.docs.rs]
+# Disable building everything together
+all-features = false
+# Explicitly choose ONE valid default feature set for documentation
+features = ["windows_dynamic"]
+rustdoc-args = ["--cfg", "docsrs"]

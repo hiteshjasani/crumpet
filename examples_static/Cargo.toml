@@ -18,3 +18,11 @@ path = "st_create_context.rs"
 [[example]]
 name = "st_exp_ek_cert"
 path = "st_exp_ek_cert.rs"
+
+[[example]]
+name = "st_cr_child_key"
+path = "st_cr_child_key.rs"
+
+[[example]]
+name = "st_load_child_key"
+path = "st_load_child_key.rs"

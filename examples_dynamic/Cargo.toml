@@ -18,3 +18,11 @@ path = "dyn_create_context.rs"
 [[example]]
 name = "dyn_exp_ek_cert"
 path = "dyn_exp_ek_cert.rs"
+
+[[example]]
+name = "dyn_cr_child_key"
+path = "dyn_cr_child_key.rs"
+
+[[example]]
+name = "dyn_load_child_key"
+path = "dyn_load_child_key.rs"

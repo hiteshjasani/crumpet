@@ -9,6 +9,12 @@ bld-examples:
   cargo build --package examples_dynamic --examples {{TARGET}} --release
   cargo build --package examples_static --examples {{TARGET}} --release
 
+publish:
+  cargo publish --package crumpet
+
+pub-dry:
+  cargo publish --package crumpet --dry-run
+
 push-test:
   scp target/x86_64-pc-windows-gnu/release/examples/*.exe win1:bin/tpm/
 

@@ -32,6 +32,7 @@ pub const TPM_RH_NULL: u32 = 0x4000_0007;
 
 pub const TPM_CC_START_AUTH_SESSION: u32 = 0x0000_0176;
 pub const TPM_CC_POLICY_SECRET: u32 = 0x0000_0151;
+pub const TPM_CC_CREATE_PRIMARY: u32 = 0x0000_0131;
 pub const TPM_CC_CREATE: u32 = 0x0000_0153;
 pub const TPM_CC_LOAD: u32 = 0x0000_0157;
 pub const TPM_CC_FLUSH_CONTEXT: u32 = 0x0000_0165;
@@ -41,3 +42,23 @@ pub const TPM_ST_HASHCHECK: u16 = 0x8024;
 pub const TPM_SE_POLICY: u8 = 0x01;
 pub const TPM_ALG_SHA256: u16 = 0x000B;
 pub const TPM_ALG_RSASSA: u16 = 0x0014;
+
+// Bit patterns for TPMA_OBJECT (UINT32)
+// 1 << 0 // reserved
+pub const TPMA_OBJECT_FIXED_TPM: u32 = 1 << 1;
+pub const TPMA_OBJECT_ST_CLEAR: u32 = 1 << 2;
+// 1 << 3 // reserved
+pub const TPMA_OBJECT_FIXED_PARENT: u32 = 1 << 4;
+pub const TPMA_OBJECT_SENSITIVE_DATA_ORIGIN: u32 = 1 << 5;
+pub const TPMA_OBJECT_USER_WITH_AUTH: u32 = 1 << 6;
+pub const TPMA_OBJECT_ADMIN_WITH_POLICY: u32 = 1 << 7;
+pub const TPMA_OBJECT_FIRMWARE_LIMITED: u32 = 1 << 8;
+pub const TPMA_OBJECT_SVN_LIMITED: u32 = 1 << 9;
+pub const TPMA_OBJECT_NO_DA: u32 = 1 << 10;
+pub const TPMA_OBJECT_ENCRYPTED_DUPLICATION: u32 = 1 << 11;
+// 1 << 12-15 // reserved
+pub const TPMA_OBJECT_RESTRICTED: u32 = 1 << 16;
+pub const TPMA_OBJECT_DECRYPT: u32 = 1 << 17;
+pub const TPMA_OBJECT_SIGN_ENCRYPT: u32 = 1 << 18;
+pub const TPMA_OBJECT_X509_SIGN: u32 = 1 << 19;
+// 1 << 20-31 // reserved

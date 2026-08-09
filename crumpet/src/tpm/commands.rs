@@ -268,6 +268,11 @@ pub fn build_rsa_signing_template() -> Vec<u8> {
     // objectAttributes: fixedTPM | fixedParent | sensitiveDataOrigin |
     // userWithAuth | sign
     let attrs: u32 = (1 << 1) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 18);
+    // let attrs: u32 = TPMA_OBJECT_FIXED_TPM
+    //     | TPMA_OBJECT_FIXED_PARENT
+    //     | TPMA_OBJECT_SENSITIVE_DATA_ORIGIN
+    //     | TPMA_OBJECT_USER_WITH_AUTH
+    //     | TPMA_OBJECT_SIGN_ENCRYPT;
 
     let mut t = Vec::new();
     t.extend_from_slice(&TPM_ALG_RSA.to_be_bytes()); // type
@@ -298,6 +303,7 @@ pub fn build_create_command(
     auth_area.push(0u8); // sessionAttributes
     auth_area.extend_from_slice(&tpm2b(&[])); // hmac: unused for policy sessions
 
+    // tpms_sensitive_create
     let mut inner_sensitive = Vec::new();
     inner_sensitive.extend_from_slice(&tpm2b(auth_value)); // userAuth
     inner_sensitive.extend_from_slice(&tpm2b(&[])); // data

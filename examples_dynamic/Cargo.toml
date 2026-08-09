@@ -3,7 +3,8 @@ name = "examples_dynamic"
 version = "0.1.0"
 edition = "2024"
 publish = false
-license = "MIT or Apache 2.0"
+authors = ["hitesh.jasani@gmail.com"]
+license = "MIT or Apache-2.0"
 
 [dev-dependencies]
 crumpet = { path = "../crumpet", features = ["windows_dynamic"] }

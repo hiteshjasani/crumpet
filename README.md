@@ -5,6 +5,5 @@ A tasty TPM 2.0 library
 
 See the examples in either [examples_dynamic](examples_dynamic) or [examples_static](examples_static).
 
-## LICENSE
-
-Software is dual licensed under [MIT](LICENSE-mit.txt) and [Apache 2.0](LICENSE-apache2.txt).
+## License
+This project is dual-licensed under the Apache License, Version 2.0 and the MIT License. See the [LICENSE](LICENSE.md) file for details.

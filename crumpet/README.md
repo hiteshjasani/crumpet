@@ -9,6 +9,5 @@ the specification.
 
 See the examples in either [examples_dynamic]([examples_dynamic](https://github.com/hiteshjasani/crumpet/tree/main/examples_dynamic) or [examples_static]([examples_static](https://github.com/hiteshjasani/crumpet/tree/main/examples_static).
 
-## LICENSE
-
-Software is dual licensed under [MIT](LICENSE-mit.txt) and [Apache 2.0](LICENSE-apache2.txt).
+## License
+This project is dual-licensed under the Apache License, Version 2.0 and the MIT License. See the [LICENSE](LICENSE.md) file for details.

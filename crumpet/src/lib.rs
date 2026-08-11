@@ -1,5 +1,5 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
-//! Library for working with the TPM
+//! Tasty minimal library for working with TPM 2.0
 //!
 //! ## Platforms
 //!
@@ -9,15 +9,15 @@
 //! `Win32_System_TpmBaseServices` using the **"windows_static"**
 //! feature flag.
 //!
-//! ## Example
+//! ## Example - dynamic linking
 //!
-//! ### Cargo.toml
+//! cargo.toml
 //!
 //! ```toml
-//! win_tpm = { version = "0.1", features = ["windows_dynamic"] }
+//! crumpet = "0.1.1"
 //! ```
 //!
-//! ### main.rs
+//! main.rs
 //!
 //! ```ignore
 //! use crumpet::win_dynamic::TbsDyn;
@@ -25,13 +25,35 @@
 //! fn main() -> Result<(), Box<dyn Error>> {
 //!    let tbs = TbsDyn::open()?;
 //!
-//!    test_all(tbs)?;
+//!    // do stuff
 //!
 //!    Ok(())
 //!}
 //!
 //! ```
 //!
+//! ## Example - static linking
+//!
+//! cargo.toml
+//!
+//! ```toml
+//! crumpet = { version = "0.1.1", default-features = false, features = ["windows_static"] }
+//! ```
+//!
+//! main.rs
+//!
+//! ```ignore
+//! use crumpet::win_static::TbsStatic;
+//!
+//! fn main() -> Result<(), Box<dyn Error>> {
+//!    let tbs = TbsStatic::open()?;
+//!
+//!    // do stuff
+//!
+//!    Ok(())
+//!}
+//!
+//! ```
 
 pub mod convert;
 pub mod tbs;

@@ -19,8 +19,8 @@
 //!
 //! ### main.rs
 //!
-//! ```rust
-//! use win_tpm::win_dynamic::TbsDyn;
+//! ```ignore
+//! use crumpet::win_dynamic::TbsDyn;
 //!
 //! fn main() -> Result<(), Box<dyn Error>> {
 //!    let tbs = TbsDyn::open()?;

@@ -2,6 +2,7 @@
 A tasty TPM 2.0 library
 
 [![Rust](https://github.com/hiteshjasani/crumpet/actions/workflows/rust.yml/badge.svg)](https://github.com/hiteshjasani/crumpet/actions/workflows/rust.yml)
+![Crates.io Version](https://img.shields.io/crates/v/crumpet)
 
 
 ## Usage

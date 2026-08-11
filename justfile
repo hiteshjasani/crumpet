@@ -30,5 +30,9 @@ push-test:
 # pull assets from test server
 pull-test:
   mkdir -p temp_run
-  scp -r win1:bin/tpm/dyn temp_run/
-  scp -r win1:bin/tpm/stat temp_run/
+  -scp -r win1:bin/tpm/dyn temp_run/
+  -scp -r win1:bin/tpm/stat temp_run/
+  -scp win1:bin/tpm/ek_*.pem temp_run/
+  -scp win1:bin/tpm/ek_*.blob temp_run/
+  -scp win1:bin/tpm/msg.txt temp_run/
+  -scp win1:bin/tpm/sig.bin temp_run/

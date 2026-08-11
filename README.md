@@ -1,6 +1,9 @@
 # cruMPeT
 A tasty TPM 2.0 library
 
+[![Rust](https://github.com/hiteshjasani/crumpet/actions/workflows/rust.yml/badge.svg)](https://github.com/hiteshjasani/crumpet/actions/workflows/rust.yml)
+
+
 ## Usage
 
 Let's say we want to export the Endorsement Key (EK) public key and X.509 certificate.  We'll do a quick project using the windows dynamic linking feature, which is the default.

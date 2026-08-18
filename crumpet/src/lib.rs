@@ -3,11 +3,16 @@
 //!
 //! ## Platforms
 //!
-//! Windows is the only platform currently supported.  You
-//! can dynamically link to `Tbs.dll` using the **"windows_dynamic"**
-//! feature flag or statically link to the `windows` crate's
-//! `Win32_System_TpmBaseServices` using the **"windows_static"**
+//! Windows is the only platform currently supported for talking to real
+//! TPM hardware. You can dynamically link to `Tbs.dll` using the
+//! **"windows_dynamic"** feature flag or statically link to the `windows`
+//! crate's `Win32_System_TpmBaseServices` using the **"windows_static"**
 //! feature flag.
+//!
+//! For development and testing on any platform, the **"mssim"** feature
+//! flag talks to an mssim-protocol TPM simulator (such as
+//! [tpmsim.rs](https://github.com/hiteshjasani/tpmsim.rs)) over TCP
+//! instead of going through Windows TBS. See [`mssim::TbsMssim`].
 //!
 //! ## Example - dynamic linking
 //!
@@ -64,3 +69,6 @@ pub mod win_dynamic;
 
 #[cfg(feature = "windows_static")]
 pub mod win_static;
+
+#[cfg(feature = "mssim")]
+pub mod mssim;

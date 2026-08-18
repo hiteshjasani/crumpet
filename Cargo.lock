@@ -103,6 +103,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "examples_mssim"
+version = "0.1.0"
+dependencies = [
+ "crumpet",
+]
+
+[[package]]
 name = "examples_static"
 version = "0.1.0"
 dependencies = [

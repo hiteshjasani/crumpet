@@ -460,6 +460,55 @@ pub fn parse_flush_context_response(resp: &[u8]) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+/// Builds `TPM2_Startup(startupType)`. Simulators come up unstarted and
+/// reject every other command until this succeeds; a real TPM behind
+/// Windows TBS is already started by firmware, so this is mainly useful
+/// against the `mssim` backend.
+pub fn build_startup_command(startup_type: u16) -> Vec<u8> {
+    let mut cmd = Vec::new();
+    cmd.extend_from_slice(&TPM_ST_NO_SESSIONS.to_be_bytes());
+    cmd.extend_from_slice(&[0u8; 4]);
+    cmd.extend_from_slice(&TPM_CC_STARTUP.to_be_bytes());
+    cmd.extend_from_slice(&startup_type.to_be_bytes());
+    let len = cmd.len() as u32;
+    cmd[2..6].copy_from_slice(&len.to_be_bytes());
+    cmd
+}
+
+pub fn parse_startup_response(resp: &[u8]) -> Result<(), Box<dyn Error>> {
+    let mut r = Reader::new(resp);
+    let _tag = r.u16()?;
+    let _size = r.u32()?;
+    let rc = r.u32()?;
+    if rc != 0 {
+        return Err(format!("Startup failed: 0x{:08X}", rc).into());
+    }
+    Ok(())
+}
+
+pub fn build_get_random_command(bytes_requested: u16) -> Vec<u8> {
+    let mut cmd = Vec::new();
+    cmd.extend_from_slice(&TPM_ST_NO_SESSIONS.to_be_bytes());
+    cmd.extend_from_slice(&[0u8; 4]);
+    cmd.extend_from_slice(&TPM_CC_GET_RANDOM.to_be_bytes());
+    cmd.extend_from_slice(&bytes_requested.to_be_bytes());
+    let len = cmd.len() as u32;
+    cmd[2..6].copy_from_slice(&len.to_be_bytes());
+    cmd
+}
+
+pub fn parse_get_random_response(resp: &[u8]) -> Result<Vec<u8>, Box<dyn Error>> {
+    let mut r = Reader::new(resp);
+    let _tag = r.u16()?;
+    let _size = r.u32()?;
+    let rc = r.u32()?;
+    if rc != 0 {
+        return Err(format!("GetRandom failed: 0x{:08X}", rc).into());
+    }
+    let random_size = r.u16()? as usize;
+    Ok(r.bytes(random_size)?.to_vec())
+}
+
 // ---------- Small byte-cursor helpers (TPM structures are big-endian) ----------
 
 pub struct Reader<'a> {

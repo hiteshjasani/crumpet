@@ -136,3 +136,11 @@ pub fn try_read_ek(tbs: &impl Tbs, handle: u32) -> Result<EkPublic, Box<dyn Erro
     let resp = tbs.submit_command(&cmd)?;
     parse_read_public_response(&resp)
 }
+
+/// Sends `TPM2_Startup(TPM_SU_CLEAR)`. A freshly-connected simulator (e.g.
+/// the `mssim` backend talking to tpmsim.rs) rejects every other command
+/// until this succeeds; call it once right after `Tbs::open()`.
+pub fn startup_clear(tbs: &impl Tbs) -> Result<(), Box<dyn Error>> {
+    let resp = tbs.submit_command(&build_startup_command(TPM_SU_CLEAR))?;
+    parse_startup_response(&resp)
+}

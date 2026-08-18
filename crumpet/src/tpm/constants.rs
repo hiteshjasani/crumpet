@@ -12,6 +12,14 @@ pub const EK_ECC_CERT_NV_INDEX: u32 = 0x01C0_000A;
 
 pub const TPM_ST_NO_SESSIONS: u16 = 0x8001;
 pub const TPM_CC_READ_PUBLIC: u32 = 0x0000_0173;
+pub const TPM_CC_STARTUP: u32 = 0x0000_0144;
+pub const TPM_CC_GET_RANDOM: u32 = 0x0000_017B;
+
+/// `startupType` values for `TPM2_Startup`. A simulator's TPM needs one of
+/// these before it accepts most other commands; a real firmware-provisioned
+/// TPM is already started, so crumpet's Windows backends never needed this.
+pub const TPM_SU_CLEAR: u16 = 0x0000;
+pub const TPM_SU_STATE: u16 = 0x0001;
 
 pub const TPM_ALG_NULL: u16 = 0x0010;
 pub const TPM_ALG_RSA: u16 = 0x0001;

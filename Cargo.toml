@@ -6,6 +6,7 @@ members = [
   # internal
   "examples_dynamic",
   "examples_static",
+  "examples_mssim",
 ]
 
 [patch.crates-io]

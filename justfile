@@ -10,6 +10,8 @@ bld-lib:
 bld-examples:
   cargo build --package examples_dynamic --examples {{TARGET}} --release
   cargo build --package examples_static --examples {{TARGET}} --release
+  cargo build --package examples_mssim --examples {{TARGET}} --release
+  cargo build --package examples_mssim --examples --release
 
 # publish to crates.io
 publish:
